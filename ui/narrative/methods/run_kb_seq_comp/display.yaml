@@ -1,7 +1,7 @@
 #
 # define display information
 #
-name: Method Name Here
+name: kb_seq_comp
 
 tooltip: |
     Perform some kind of method
@@ -24,17 +24,44 @@ suggestions:
 # Configure the display and description of parameters
 #
 parameters :
-    parameter_1 :
+
+    input_genomeset :
         ui-name : |
-            First parameter
+            Genome Set
         short-hint : |
-            The first parameter
+            A set of references to genomes stored in KBase
         long-hint  : |
-            The first parameter that needs to be entered to drive the method. This might be the first of many.
+            A set of references to genomes stored in KBase
+
+        ui-name : |
+            Genome Set
+        short-hint : |
+            A set of references to genomes stored in KBase
+        long-hint  : |
+            A set of references to genomes stored in KBase
+
+    input_genomes :
+        ui-name : |
+            Genome or ContigSet
+        short-hint : |
+            A list of references to genomes or contigsets stored in KBase
+        long-hint  : |
+            A list of references to genomes or contigsets stored in KBase
+
+    output_report_name:
+        ui-name : |
+            Output Report
+        short-hint : |
+            Enter a name for the output dnadiff report object
+
 
 description : |
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar efficitur felis, quis tincidunt sem congue at. Vivamus ornare feugiat faucibus. Fusce tincidunt mattis nunc, nec varius purus convallis quis. Nulla facilisi. In at magna dolor. Suspendisse sit amet felis at arcu auctor dapibus vitae pharetra dui. Nam semper mi quis tortor fermentum mollis. Donec a arcu pharetra, rutrum dolor vitae, rutrum mauris. Donec ornare fringilla sagittis. Nam laoreet est in elementum malesuada. Vestibulum id mi eget urna hendrerit feugiat. Donec et ultrices nulla. Phasellus diam eros, dapibus at tempus nec, semper vel ante.</p>
+	<p>This is a KBase wrapper for MUMmer's dnadiff.</p>
+	<p>This method compares the DNA sequences of multiple Genomes or ContigSets and generate an all-to-all comparison matrix. The overall similarity between each pair of query and reference genome is presented in the matrix cell as the product of dnadiff's AlignedBases and AvgIdentity in the reference column. 100% sequence matches are denoted by white table cells, while darker red is used to indicate greater sequence distance. A detailed dnadiff report for the comparison of each sequence pair can be accessed in the mouseover window for the corresponding matrix cell.</p>
 
-    <p>Curabitur auctor, metus at tristique euismod, odio elit tincidunt neque, a facilisis sem massa convallis dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc ut hendrerit tellus. Nunc lacinia laoreet finibus. Etiam vitae sagittis enim. Fusce consectetur porta est eu pretium. In hac habitasse platea dictumst. Integer pellentesque sit amet sapien id venenatis. Nullam ac risus at orci eleifend aliquet. Vestibulum elit purus, euismod a nibh quis, pellentesque semper leo. Curabitur ullamcorper felis hendrerit nunc egestas, sit amet pharetra sapien porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas hendrerit ipsum a ligula aliquet vestibulum. Duis a ante urna. Aenean ante neque, rhoncus id luctus ut, accumsan vel nunc.</p>
-
-    <p>Pellentesque accumsan aliquet magna, id consectetur tellus condimentum eu. Suspendisse elit dui, ornare ac leo eget, tincidunt feugiat orci. Maecenas auctor gravida lacinia. Mauris interdum nisi vel gravida varius. Nullam tempus, purus eget posuere aliquet, odio elit semper massa, quis facilisis massa odio vitae lacus. Fusce varius enim a mi vehicula tempus. Maecenas faucibus tellus ipsum, at venenatis ipsum auctor et. Suspendisse sem mi, dignissim id porta efficitur, auctor eget magna. Vivamus varius purus nulla, porttitor euismod lorem cursus quis. Nulla sit amet eros nec sem ultrices pulvinar.</p>
+publications :
+    -
+        pmid: 18428693
+        display-text : |
+            'Delcher, A. L., Salzberg, S. L., & Phillippy, A. M. (2003). Using MUMmer to identify similar regions in large sequence sets. Current Protocols in Bioinformatics, 10-3'
+        link: http://www.ncbi.nlm.nih.gov/pubmed/18428693

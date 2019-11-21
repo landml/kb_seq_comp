@@ -13,7 +13,7 @@ class kb_seq_comp:
     kb_seq_comp
 
     Module Description:
-    A KBase module: kb_seq_comp
+    A KBase module: SeqComparison
     '''
 
     ######## WARNING FOR GEVENT USERS ####### noqa
@@ -23,8 +23,8 @@ class kb_seq_comp:
     # the latter method is running.
     ######################################### noqa
     VERSION = "0.0.1"
-    GIT_URL = ""
-    GIT_COMMIT_HASH = ""
+    GIT_URL = "https://github.com/landml/kb_seq_comp.git"
+    GIT_COMMIT_HASH = "7876b2ed251b359259d983909c79f47328cf386e"
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER
@@ -43,7 +43,7 @@ class kb_seq_comp:
 
     def run_kb_seq_comp(self, ctx, params):
         """
-        This example function accepts any number of parameters and returns results in a KBaseReport
+        This Accepts any number of parameters and returns results in a KBaseReport
         :param params: instance of mapping from String to unspecified object
         :returns: instance of type "ReportResults" -> structure: parameter
            "report_name" of String, parameter "report_ref" of String

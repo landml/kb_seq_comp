@@ -11,16 +11,41 @@
     },
     "parameters": [ 
         {
-            "id": "parameter_1",
+            "id": "input_genomeset",
             "optional": true,
             "advanced": false,
             "allow_multiple": false,
             "default_values": [ "" ],
             "field_type": "text",
             "text_options": {
-                "valid_ws_types": [ ]
+                "valid_ws_types": [ "KBaseSearch.GenomeSet" ]
             }
-        }
+        },
+
+        {
+            "id": "input_genomes",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": true,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "valid_ws_types": [ "KBaseGenomes.Genome", "KBaseGenomes.ContigSet" ]
+            }
+        },
+        {
+            "id" : "output_report_name",
+            "optional" : false,
+            "advanced" : false,
+            "allow_multiple" : false,
+            "default_values" : [ "dnadiff.report" ],
+            "field_type" : "text",
+            "text_options" : {
+            "valid_ws_types" : [ "ComparativeGenomics.SeqCompOutput" ],
+            "is_output_name":true
+	    }
+    }
+
     ],
     "behavior": {
         "service-mapping": {
@@ -35,18 +60,32 @@
                     "narrative_system_variable": "workspace_id",
                     "target_property": "workspace_id"
                 },{
-                    "input_parameter": "parameter_1",
-                    "target_property": "parameter_1"
+                    "input_parameter": "input_genomeset",
+                    "target_property": "input_genomeset_ref"
+                }, {
+                     "input_parameter": "input_genomes",
+                    "target_property": "input_genome_refs",
+                    "target_type_transform": "list<ref>"
+                }, {
+                    "input_parameter": "output_report_name",
+                    "target_property": "output_report_name"
                 }
             ],
             "output_mapping": [
                 {
+                    "narrative_system_variable": "workspace",
+                    "target_property" : "workspace_name"
+                }, {
                     "service_method_output_path": [0,"report_name"],
                     "target_property": "report_name"
                 },{
                     "service_method_output_path": [0,"report_ref"],
                     "target_property": "report_ref"
+                }, {
+                    "constant_value": "16",
+                    "target_property": "report_window_line_height"
                 }
+
             ]
         }
     },
